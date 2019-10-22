@@ -14,16 +14,16 @@ namespace TailwindTraders.Mobile.Droid
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
             : base(handle, transer)
         {
-            Crashes.GenerateTestCrash();
+            
             try {
             // your code here.
-            
+                Crashes.GenerateTestCrash();
             } catch (Exception exception) {
-            var properties = new Dictionary<string, string> {
+                var properties = new Dictionary<string, string> {
                 { "Category", "Music" },
                 { "Wifi", "On" }
-            };
-            Crashes.TrackError(exception, properties);
+                };
+                Crashes.TrackError(exception, properties);
             }
 
         }
