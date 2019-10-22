@@ -14,6 +14,18 @@ namespace TailwindTraders.Mobile.Droid
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
             : base(handle, transer)
         {
+            Crashes.GenerateTestCrash();
+            try {
+            // your code here.
+            
+            } catch (Exception exception) {
+            var properties = new Dictionary<string, string> {
+                { "Category", "Music" },
+                { "Wifi", "On" }
+            };
+            Crashes.TrackError(exception, properties);
+            }
+
         }
 
         public override void OnCreate()
